@@ -1,0 +1,5 @@
+.env
+access_token.txt
+__pycache__/
+*.pyc
+.vscode/

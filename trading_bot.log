@@ -1,0 +1,23 @@
+2026-05-10 18:52:21,873 - bot.logging_setup - INFO - Starting the trading bot...
+2026-05-10 18:52:21,873 - bot.logging_setup - INFO - Kite Connect session created successfully.
+2026-05-10 18:52:21,873 - bot.logging_setup - INFO - Twilio client initialized successfully.
+2026-05-10 18:52:22,139 - bot.logging_setup - ERROR - Error fetching historical data: Invalid `api_key` or `access_token`.
+2026-05-10 20:20:39,497 - bot.logging_setup - INFO - Starting the trading bot...
+2026-05-10 20:20:39,497 - bot.logging_setup - INFO - Kite Connect session created successfully.
+2026-05-10 20:20:39,497 - bot.logging_setup - INFO - Twilio client initialized successfully.
+2026-05-10 20:20:39,666 - bot.logging_setup - ERROR - Error fetching historical data: Invalid `api_key` or `access_token`.
+2026-05-10 20:25:39,724 - bot.logging_setup - ERROR - Error fetching historical data: Invalid `api_key` or `access_token`.
+2026-05-10 20:30:39,754 - bot.logging_setup - ERROR - Error fetching historical data: Invalid `api_key` or `access_token`.
+2026-05-10 20:35:39,796 - bot.logging_setup - ERROR - Error fetching historical data: Invalid `api_key` or `access_token`.
+2026-05-10 20:40:29,516 - bot.logging_setup - INFO - Starting the trading bot...
+2026-05-10 20:40:29,615 - bot.logging_setup - INFO - Please login to Kite and authorize the app.
+2026-05-10 20:40:29,632 - bot.logging_setup - INFO - Waiting for request token on http://localhost:8080
+2026-05-10 20:45:57,695 - bot.logging_setup - INFO - Starting the trading bot...
+2026-05-10 20:45:57,768 - bot.logging_setup - INFO - Please login to Kite and authorize the app.
+2026-05-10 20:45:57,778 - bot.logging_setup - INFO - Waiting for request token on http://localhost:8080
+2026-05-10 23:36:06,898 - bot.logging_setup - INFO - Starting the trading bot...
+2026-05-10 23:36:06,977 - bot.logging_setup - INFO - Please login to Kite and authorize the app.
+2026-05-10 23:36:06,982 - bot.logging_setup - INFO - Waiting for request token on http://localhost:8080
+2026-05-10 23:38:57,413 - bot.logging_setup - INFO - Starting the trading bot...
+2026-05-10 23:38:57,481 - bot.logging_setup - INFO - Please login to Kite and authorize the app.
+2026-05-10 23:38:57,496 - bot.logging_setup - INFO - Waiting for request token on http://localhost:8080
