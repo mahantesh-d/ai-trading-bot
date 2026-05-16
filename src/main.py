@@ -1,81 +1,153 @@
 import time
-from datetime import datetime, timedelta
+import json
+import yfinance as yf
+
 from bot import config
 from bot.logging_setup import logger
 from bot.strategy import TradingStrategy
 from bot.paper_trading import PaperTrading
-from bot.kite_integration import KiteIntegration
-from bot.kite_auth import KiteAuth
-from bot.notifications import WhatsAppNotifier
+
+
+def update_state(state):
+    with open("src/state.json", "w") as f:
+        json.dump(state, f)
+
+
+def fetch_market_data():
+    try:
+        ticker = yf.Ticker("RELIANCE.NS")
+
+        df = ticker.history(
+            period="5d",
+            interval="5m"
+        )
+
+        if df.empty:
+            logger.warning("No market data received.")
+            return None
+
+        # Convert columns to lowercase
+        df.columns = [col.lower() for col in df.columns]
+
+        logger.info("Market data fetched successfully.")
+        return df
+    except Exception as e:
+        logger.error(f"Error fetching market data: {e}")
+        return None
+
 
 def main():
-    """Main function to run the trading bot."""
-    logger.info("Starting the trading bot...")
+    logger.info("Starting trading bot...")
 
-    # Initialize components
-    try:
-        auth = KiteAuth(api_key=config.KITE_API_KEY, api_secret=config.KITE_API_SECRET)
-        access_token = auth.get_access_token()
+    # Initial state
+    state = {
+        "bot_status": "RUNNING",
+        "signal": "NONE",
+        "position": "NONE",
+        "daily_pnl": 0
+    }
 
-        kite = KiteIntegration(
-            api_key=config.KITE_API_KEY,
-            access_token=access_token,
-        )
-        strategy = TradingStrategy(
-            instrument=config.INSTRUMENT,
-            atr_period=config.ATR_PERIOD,
-            ema_short_period=config.EMA_SHORT_PERIOD,
-            ema_long_period=config.EMA_LONG_PERIOD,
-        )
-        paper_trader = PaperTrading(
-            instrument=config.INSTRUMENT,
-            quantity=config.QUANTITY,
-            risk_reward_ratio=config.RISK_REWARD_RATIO,
-        )
-        notifier = WhatsAppNotifier()
-    except Exception as e:
-        logger.error(f"Failed to initialize components: {e}")
-        return
+    update_state(state)
 
-    instrument_name = config.INSTRUMENT.split(":")[1]
-    instrument_token = kite.get_instrument_token(instrument_name)
-    if not instrument_token:
-        logger.error(f"Could not find instrument token for {instrument_name}")
-        return
+    # Strategy
+    strategy = TradingStrategy(
+        instrument=config.INSTRUMENT,
+        atr_period=config.ATR_PERIOD,
+        ema_short_period=config.EMA_SHORT_PERIOD,
+        ema_long_period=config.EMA_LONG_PERIOD,
+    )
 
-    # Main loop
+    # Paper Trading
+    paper_trader = PaperTrading(
+        instrument=config.INSTRUMENT,
+        quantity=config.QUANTITY,
+        risk_reward_ratio=config.RISK_REWARD_RATIO,
+    )
+
     while True:
         try:
-            # Fetch historical data
-            to_date = datetime.now()
-            from_date = to_date - timedelta(days=30)  # Fetch last 30 days of data
-            df = kite.get_historical_data(
-                instrument_token, from_date.strftime("%Y-%m-%d"), to_date.strftime("%Y-%m-%d"), "5minute"
+            # Fetch market data
+            df = fetch_market_data()
+
+            if df is None:
+                time.sleep(60)
+                continue
+
+            # Generate signal
+            signal_data = strategy.generate_signal(df)
+
+            logger.info(
+                f"Generated Signal: {signal_data}"
             )
 
-            if not df.empty:
-                # Generate signal
-                signal_data = strategy.generate_signal(df)
+            # Update dashboard state
+            state["signal"] = signal_data.get(
+                "signal",
+                "NONE"
+            )
 
-                # Execute trade
-                if paper_trader.position is None:
-                    if signal_data["signal"] in ["BUY", "SELL"]:
-                        if paper_trader.execute_trade(signal_data["signal"], signal_data["price"], signal_data["stoploss"]):
-                            notifier.send_message(
-                                f"Trade executed: {signal_data['signal']} {config.QUANTITY} {config.INSTRUMENT} at {signal_data['price']}"
-                            )
-                else:
-                    # Check for exit
-                    if paper_trader.check_exit_conditions(df.iloc[-1]["close"]):
-                        notifier.send_message(
-                            f"Trade closed for {config.INSTRUMENT}. PnL: {paper_trader.pnl}"
+            state["position"] = (
+                paper_trader.position
+                if paper_trader.position
+                else "NONE"
+            )
+
+            state["daily_pnl"] = paper_trader.pnl
+
+            update_state(state)
+
+            # Execute paper trade
+            if paper_trader.position is None:
+                if signal_data["signal"] in [
+                    "BUY",
+                    "SELL"
+                ]:
+                    trade_executed = (
+                        paper_trader.execute_trade(
+                            signal=signal_data["signal"],
+                            price=signal_data["price"],
+                            stoploss=signal_data["stoploss"]
                         )
-                        break  # Exit after one trade per day
+                    )
 
-            time.sleep(300)  # Wait for 5 minutes
-        except Exception as e:
-            logger.error(f"An error occurred in the main loop: {e}")
+                    if trade_executed:
+                        logger.info(
+                            "Paper trade executed."
+                        )
+                        state["position"] = (
+                            paper_trader.position
+                        )
+                        update_state(state)
+            else:
+                current_price = df.iloc[-1]["close"]
+
+                if paper_trader.check_exit_conditions(
+                    current_price
+                ):
+                    logger.info(
+                        f"Trade closed. "
+                        f"PnL: {paper_trader.pnl}"
+                    )
+
+                    state["daily_pnl"] = (
+                        paper_trader.pnl
+                    )
+
+                    state["position"] = "NONE"
+
+                    update_state(state)
+
+            logger.info(
+                "Waiting for next candle..."
+            )
+
             time.sleep(300)
+        except Exception as e:
+            logger.error(
+                f"Main loop error: {e}"
+            )
+            time.sleep(60)
+
 
 if __name__ == "__main__":
     main()

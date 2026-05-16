@@ -21,3 +21,97 @@
 2026-05-10 23:38:57,413 - bot.logging_setup - INFO - Starting the trading bot...
 2026-05-10 23:38:57,481 - bot.logging_setup - INFO - Please login to Kite and authorize the app.
 2026-05-10 23:38:57,496 - bot.logging_setup - INFO - Waiting for request token on http://localhost:8080
+2026-05-16 12:53:46,019 - bot.logging_setup - INFO - Starting the trading bot...
+2026-05-16 12:53:46,121 - bot.logging_setup - INFO - Please login to Kite and authorize the app.
+2026-05-16 12:53:46,138 - bot.logging_setup - INFO - Waiting for request token on http://localhost:8080
+2026-05-16 12:57:49,493 - bot.logging_setup - INFO - Starting the trading bot...
+2026-05-16 12:57:49,598 - bot.logging_setup - INFO - Please login to Kite and authorize the app.
+2026-05-16 12:57:49,612 - bot.logging_setup - INFO - Waiting for request token on http://localhost:8080
+2026-05-16 12:58:13,545 - bot.logging_setup - INFO - Request token received.
+2026-05-16 12:58:13,642 - bot.logging_setup - INFO - New access token generated and saved.
+2026-05-16 12:58:13,644 - bot.logging_setup - INFO - Kite Connect session created successfully.
+2026-05-16 12:58:13,646 - bot.logging_setup - INFO - Twilio client initialized successfully.
+2026-05-16 12:58:13,873 - bot.logging_setup - ERROR - Error fetching historical data: Insufficient permission for that call.
+2026-05-16 13:04:42,920 - bot.logging_setup - INFO - Starting the trading bot...
+2026-05-16 13:04:43,023 - bot.logging_setup - INFO - Access token loaded from file.
+2026-05-16 13:04:43,023 - bot.logging_setup - INFO - Kite Connect session created successfully.
+2026-05-16 13:04:43,023 - bot.logging_setup - INFO - Twilio client initialized successfully.
+2026-05-16 13:04:43,163 - bot.logging_setup - ERROR - An error occurred in the main loop: name 'df' is not defined
+2026-05-16 13:09:28,871 - bot.logging_setup - INFO - Starting the trading bot...
+2026-05-16 13:09:28,935 - bot.logging_setup - INFO - Access token loaded from file.
+2026-05-16 13:09:28,935 - bot.logging_setup - INFO - Kite Connect session created successfully.
+2026-05-16 13:09:28,935 - bot.logging_setup - INFO - Kite Connect session created successfully.
+2026-05-16 13:09:28,935 - bot.logging_setup - INFO - Twilio client initialized successfully.
+2026-05-16 13:09:28,935 - bot.logging_setup - INFO - Trading bot initialized successfully.
+2026-05-16 13:09:30,128 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 13:09:30,128 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 13:09:30,128 - bot.logging_setup - ERROR - Main loop error: 'high'
+2026-05-16 13:10:30,265 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 13:10:30,271 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 13:10:30,271 - bot.logging_setup - ERROR - Main loop error: 'high'
+2026-05-16 13:11:30,404 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 13:11:30,406 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 13:11:30,406 - bot.logging_setup - ERROR - Main loop error: 'high'
+2026-05-16 13:12:30,534 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 13:12:30,534 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 13:12:30,534 - bot.logging_setup - ERROR - Main loop error: 'high'
+2026-05-16 13:13:35,214 - bot.logging_setup - INFO - Starting the trading bot...
+2026-05-16 13:13:35,278 - bot.logging_setup - INFO - Access token loaded from file.
+2026-05-16 13:13:35,278 - bot.logging_setup - INFO - Kite Connect session created successfully.
+2026-05-16 13:13:35,278 - bot.logging_setup - INFO - Kite Connect session created successfully.
+2026-05-16 13:13:35,278 - bot.logging_setup - INFO - Twilio client initialized successfully.
+2026-05-16 13:13:35,278 - bot.logging_setup - INFO - Trading bot initialized successfully.
+2026-05-16 13:13:36,009 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 13:13:36,009 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 13:13:36,023 - bot.logging_setup - INFO - No trade signal generated
+2026-05-16 13:13:36,023 - bot.logging_setup - INFO - Generated Signal: {'signal': 'HOLD'}
+2026-05-16 13:13:36,023 - bot.logging_setup - INFO - Waiting for next candle...
+2026-05-16 13:18:36,390 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 13:18:36,390 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 13:18:36,412 - bot.logging_setup - INFO - No trade signal generated
+2026-05-16 13:18:36,412 - bot.logging_setup - INFO - Generated Signal: {'signal': 'HOLD'}
+2026-05-16 13:18:36,414 - bot.logging_setup - INFO - Waiting for next candle...
+2026-05-16 13:23:36,587 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 13:23:36,587 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 13:23:36,596 - bot.logging_setup - INFO - No trade signal generated
+2026-05-16 13:23:36,596 - bot.logging_setup - INFO - Generated Signal: {'signal': 'HOLD'}
+2026-05-16 13:23:36,596 - bot.logging_setup - INFO - Waiting for next candle...
+2026-05-16 14:14:33,026 - bot.logging_setup - INFO - Starting trading bot...
+2026-05-16 14:14:33,555 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 14:14:33,555 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 14:14:33,560 - bot.logging_setup - ERROR - Strategy error: 'High'
+2026-05-16 14:14:33,560 - bot.logging_setup - INFO - Generated Signal: {'signal': 'HOLD'}
+2026-05-16 14:14:33,560 - bot.logging_setup - INFO - Waiting for next candle...
+2026-05-16 14:16:05,041 - bot.logging_setup - INFO - Starting trading bot...
+2026-05-16 14:16:05,929 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 14:16:05,929 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 14:16:05,929 - bot.logging_setup - ERROR - Strategy error: 'High'
+2026-05-16 14:16:05,929 - bot.logging_setup - INFO - Generated Signal: {'signal': 'HOLD'}
+2026-05-16 14:16:05,929 - bot.logging_setup - INFO - Waiting for next candle...
+2026-05-16 14:21:06,174 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 14:21:06,175 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 14:21:06,175 - bot.logging_setup - ERROR - Strategy error: 'High'
+2026-05-16 14:21:06,175 - bot.logging_setup - INFO - Generated Signal: {'signal': 'HOLD'}
+2026-05-16 14:21:06,178 - bot.logging_setup - INFO - Waiting for next candle...
+2026-05-16 14:21:54,283 - bot.logging_setup - INFO - Starting trading bot...
+2026-05-16 14:21:55,408 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 14:21:55,408 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 14:21:55,408 - bot.logging_setup - INFO - No trade signal generated
+2026-05-16 14:21:55,408 - bot.logging_setup - INFO - Generated Signal: {'signal': 'HOLD'}
+2026-05-16 14:21:55,408 - bot.logging_setup - INFO - Waiting for next candle...
+2026-05-16 14:22:24,621 - bot.logging_setup - INFO - Starting trading bot...
+2026-05-16 14:22:25,511 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 14:22:25,511 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 14:22:25,511 - bot.logging_setup - INFO - No trade signal generated
+2026-05-16 14:22:25,511 - bot.logging_setup - INFO - Generated Signal: {'signal': 'HOLD'}
+2026-05-16 14:22:25,511 - bot.logging_setup - INFO - Waiting for next candle...
+2026-05-16 14:27:25,709 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 14:27:25,709 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 14:27:25,719 - bot.logging_setup - INFO - No trade signal generated
+2026-05-16 14:27:25,719 - bot.logging_setup - INFO - Generated Signal: {'signal': 'HOLD'}
+2026-05-16 14:27:25,719 - bot.logging_setup - INFO - Waiting for next candle...
+2026-05-16 14:32:25,859 - bot.logging_setup - INFO - Market data fetched successfully.
+2026-05-16 14:32:25,859 - bot.logging_setup - INFO - Generating signal for NSE:RELIANCE
+2026-05-16 14:32:25,874 - bot.logging_setup - INFO - No trade signal generated
+2026-05-16 14:32:25,874 - bot.logging_setup - INFO - Generated Signal: {'signal': 'HOLD'}
+2026-05-16 14:32:25,875 - bot.logging_setup - INFO - Waiting for next candle...
